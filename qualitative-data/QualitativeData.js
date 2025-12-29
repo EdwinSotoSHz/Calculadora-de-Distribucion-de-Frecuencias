@@ -1,24 +1,25 @@
-"use strict";
 /*
     * Metodos para contruir las distribuciones de frecuencia
 */
-const highestToLowestFreu = function (classList, freqList) {
-    const l = classList.length;
-    for (let i = 0; i < l; i++) {
-        let elemento = i;
-        for (let j = i + 1; j < l; j++) {
+var highestToLowestFreu = function (classList, freqList) {
+    var _a, _b;
+    var l = classList.length;
+    for (var i = 0; i < l; i++) {
+        var elemento = i;
+        for (var j = i + 1; j < l; j++) {
             if (freqList[j] < freqList[elemento]) {
                 elemento = j;
             }
         }
-        [classList[i], classList[elemento]] = [classList[elemento], classList[i]];
-        [freqList[i], freqList[elemento]] = [freqList[elemento], freqList[i]];
+        _a = [classList[elemento], classList[i]], classList[i] = _a[0], classList[elemento] = _a[1];
+        _b = [freqList[elemento], freqList[i]], freqList[i] = _b[0], freqList[elemento] = _b[1];
     }
     return [classList, freqList];
 };
-const formatData = function (dataArray) {
-    let dataArraySorted = [];
-    for (let element of dataArray) {
+var formatData = function (dataArray) {
+    var dataArraySorted = [];
+    for (var _i = 0, dataArray_1 = dataArray; _i < dataArray_1.length; _i++) {
+        var element = dataArray_1[_i];
         if (typeof element === 'string') {
             element = (element.trim().toLowerCase()).replaceAll('á', 'a').replaceAll('é', 'e').replaceAll('í', 'i').replaceAll('ó', 'o').replaceAll('ú', 'u');
             dataArraySorted.push(element);
@@ -30,15 +31,17 @@ const formatData = function (dataArray) {
     }
     return dataArraySorted;
 };
-const sum = function (array) {
-    return array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+var sum = function (array) {
+    return array.reduce(function (accumulator, currentValue) { return accumulator + currentValue; }, 0);
 };
-const generateQualitativeData = function (lstData, sortByfrequency) {
+var generateQualitativeData = function (lstData, sortByfrequency) {
+    var _a;
     lstData = formatData(lstData);
     lstData.sort();
-    let lstClass = [];
-    let freqAbs = [];
-    for (let element of lstData) {
+    var lstClass = [];
+    var freqAbs = [];
+    for (var _i = 0, lstData_1 = lstData; _i < lstData_1.length; _i++) {
+        var element = lstData_1[_i];
         if (!lstClass.includes(element)) {
             lstClass.push(element);
             freqAbs.push(1);
@@ -48,14 +51,15 @@ const generateQualitativeData = function (lstData, sortByfrequency) {
         }
     }
     if (sortByfrequency) {
-        [lstClass, freqAbs] = highestToLowestFreu(lstClass, freqAbs);
+        _a = highestToLowestFreu(lstClass, freqAbs), lstClass = _a[0], freqAbs = _a[1];
     }
-    let frecRel = [];
-    let frecRelAc = [];
-    let freqAbsT = sum(freqAbs);
-    let ultFa = 0, ultFr = 0;
-    for (let fa of freqAbs) {
-        const fr = 100 / freqAbsT * fa;
+    var frecRel = [];
+    var frecRelAc = [];
+    var freqAbsT = sum(freqAbs);
+    var ultFa = 0, ultFr = 0;
+    for (var _b = 0, freqAbs_1 = freqAbs; _b < freqAbs_1.length; _b++) {
+        var fa = freqAbs_1[_b];
+        var fr = 100 / freqAbsT * fa;
         frecRel.push(parseFloat(fr.toFixed(3)) + '%');
         frecRelAc.push(parseFloat((fr + ultFr).toFixed(3)) + '%');
         ultFr += fr;
@@ -66,15 +70,15 @@ const generateQualitativeData = function (lstData, sortByfrequency) {
 /*
     * Obtener datos del usuario (Tabla)
 */
-const getData = function () {
-    let inputElement = document.getElementById('inputData');
-    let inputString = (inputElement.value).trim();
-    let dataArray = inputString.split(',').map(value => value.trim());
+var getData = function () {
+    var inputElement = document.getElementById('inputData');
+    var inputString = (inputElement.value).trim();
+    var dataArray = inputString.split(',').map(function (value) { return value.trim(); });
     return dataArray;
 };
-const checkOrder = document.getElementById('checkOrder');
-const getOrderCheck = function () {
-    let isChecked = false;
+var checkOrder = document.getElementById('checkOrder');
+var getOrderCheck = function () {
+    var isChecked = false;
     if (checkOrder != null) {
         isChecked = checkOrder.checked;
     }
@@ -82,9 +86,9 @@ const getOrderCheck = function () {
     return isChecked;
 };
 var class_fa_fr_frAc;
-const tableContainer = document.getElementById('tableContainer');
-const titleChart = document.getElementById('titleChart');
-const showData = function () {
+var tableContainer = document.getElementById('tableContainer');
+var titleChart = document.getElementById('titleChart');
+var showData = function () {
     checkBarPlot.checked = true;
     checkPiePlot.checked = true;
     checkHistogram.checked = true;
@@ -96,18 +100,18 @@ const showData = function () {
     checkOgive.click();
     checkFrequencyPolygon.click();
     titleChart.removeAttribute('disabled');
-    let dataArray = getData();
-    let orderCheck = getOrderCheck();
+    var dataArray = getData();
+    var orderCheck = getOrderCheck();
     class_fa_fr_frAc = generateQualitativeData(dataArray, orderCheck);
     console.log(class_fa_fr_frAc);
-    const headers = ["Clases", "F<sub>a</sub>", "F<sub>r</sub>", "F<sub>r</sub> Acum."];
+    var headers = ["Clases", "F<sub>a</sub>", "F<sub>r</sub>", "F<sub>r</sub> Acum."];
     if (tableContainer != null) {
         //console.table(class_fa_faAc_fr_frAc)
         tableContainer.innerHTML = '';
         printHTMLTable(headers, class_fa_fr_frAc, tableContainer);
     }
 };
-const btnData = document.getElementById('btnData');
+var btnData = document.getElementById('btnData');
 if (btnData != null) {
     btnData.addEventListener('click', showData);
 }
@@ -117,72 +121,77 @@ if (checkOrder != null) {
 /*
     * Obtener datos del usuario (Gráficas)
 */
-const getValueCheck = function (checkElement) {
-    let isChecked = false;
+var getValueCheck = function (checkElement) {
+    var isChecked = false;
     if (checkElement != null) {
         isChecked = checkElement.checked;
     }
     //console.log(isChecked)
     return isChecked;
 };
-const graphics = document.getElementById("graphics");
-const checkBarPlot = document.getElementById('checkBarPlot');
-checkBarPlot.addEventListener('change', () => {
-    let barPlot = document.createElement("div");
+var graphics = document.getElementById("graphics");
+var checkBarPlot = document.getElementById('checkBarPlot');
+checkBarPlot.addEventListener('change', function () {
+    var _a;
+    var barPlot = document.createElement("div");
     barPlot.id = "barPlot";
     if (getValueCheck(checkBarPlot)) {
-        graphics?.appendChild(barPlot);
-        generateHorizontalBarChart(barPlot, class_fa_fr_frAc[1], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        graphics === null || graphics === void 0 ? void 0 : graphics.appendChild(barPlot);
+        generateHorizontalBarChart(barPlot, class_fa_fr_frAc[1], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }
     else {
-        document.getElementById("barPlot")?.remove();
+        (_a = document.getElementById("barPlot")) === null || _a === void 0 ? void 0 : _a.remove();
     }
 });
-const checkPiePlot = document.getElementById('checkPiePlot');
-checkPiePlot.addEventListener('change', () => {
-    let piePlot = document.createElement("div");
+var checkPiePlot = document.getElementById('checkPiePlot');
+checkPiePlot.addEventListener('change', function () {
+    var _a;
+    var piePlot = document.createElement("div");
     piePlot.id = "piePlot";
     if (getValueCheck(checkPiePlot)) {
-        graphics?.appendChild(piePlot);
-        generatePieChart(piePlot, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        graphics === null || graphics === void 0 ? void 0 : graphics.appendChild(piePlot);
+        generatePieChart(piePlot, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }
     else {
-        document.getElementById("piePlot")?.remove();
+        (_a = document.getElementById("piePlot")) === null || _a === void 0 ? void 0 : _a.remove();
     }
 });
-const checkHistogram = document.getElementById('checkHistogram');
-checkHistogram.addEventListener('change', () => {
-    let histogram = document.createElement("div");
+var checkHistogram = document.getElementById('checkHistogram');
+checkHistogram.addEventListener('change', function () {
+    var _a;
+    var histogram = document.createElement("div");
     histogram.id = "histogram";
     if (getValueCheck(checkHistogram)) {
-        graphics?.appendChild(histogram);
-        generateHistogram(histogram, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        graphics === null || graphics === void 0 ? void 0 : graphics.appendChild(histogram);
+        generateHistogram(histogram, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }
     else {
-        document.getElementById("histogram")?.remove();
+        (_a = document.getElementById("histogram")) === null || _a === void 0 ? void 0 : _a.remove();
     }
 });
-const checkOgive = document.getElementById('checkOgive');
-checkOgive.addEventListener('change', () => {
-    let ogive = document.createElement("div");
+var checkOgive = document.getElementById('checkOgive');
+checkOgive.addEventListener('change', function () {
+    var _a;
+    var ogive = document.createElement("div");
     ogive.id = "ogive";
     if (getValueCheck(checkOgive)) {
-        graphics?.appendChild(ogive);
-        generateOgive(ogive, class_fa_fr_frAc[3], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        graphics === null || graphics === void 0 ? void 0 : graphics.appendChild(ogive);
+        generateOgive(ogive, class_fa_fr_frAc[3], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }
     else {
-        document.getElementById("ogive")?.remove();
+        (_a = document.getElementById("ogive")) === null || _a === void 0 ? void 0 : _a.remove();
     }
 });
-const checkFrequencyPolygon = document.getElementById('checkFrequencyPolygon');
-checkFrequencyPolygon.addEventListener('change', () => {
-    let frequencyPolygon = document.createElement("div");
+var checkFrequencyPolygon = document.getElementById('checkFrequencyPolygon');
+checkFrequencyPolygon.addEventListener('change', function () {
+    var _a;
+    var frequencyPolygon = document.createElement("div");
     frequencyPolygon.id = "frequencyPolygon";
     if (getValueCheck(checkFrequencyPolygon)) {
-        graphics?.appendChild(frequencyPolygon);
-        generateFrequencyPolygon(frequencyPolygon, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        graphics === null || graphics === void 0 ? void 0 : graphics.appendChild(frequencyPolygon);
+        generateFrequencyPolygon(frequencyPolygon, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }
     else {
-        document.getElementById("frequencyPolygon")?.remove();
+        (_a = document.getElementById("frequencyPolygon")) === null || _a === void 0 ? void 0 : _a.remove();
     }
 });

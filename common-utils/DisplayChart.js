@@ -43,7 +43,7 @@ var generateHorizontalBarChart = function (parentElement, absoluteFrequency, cla
         },
         bargap: 0.2,
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
     Plotly.newPlot(parentElement, data, layout);
 };
@@ -69,7 +69,7 @@ var generatePieChart = function (parentElement, relativeFrequency, classMark, co
         title: (title == '') ? 'Gráfico Circular' : title,
         showlegend: true,
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
     Plotly.newPlot(parentElement, data, layout);
 };
@@ -108,7 +108,7 @@ var generateHistogram = function (parentElement, relativeFrequency, classMark, c
         },
         bargap: 0.01,
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
     Plotly.newPlot(parentElement, data, layout);
 };
@@ -127,7 +127,7 @@ var generateOgive = function (parentElement, relativeFrequencyAcum, classMark, c
                 dash: 'dash'
             },
             marker: {
-                color: '#20BEFF',
+                color: '#6FBF73',
                 size: 15,
                 symbol: 'circle',
                 line: {
@@ -136,7 +136,7 @@ var generateOgive = function (parentElement, relativeFrequencyAcum, classMark, c
                 }
             },
             plot_bgcolor: 'rgba(0,0,0,0)',
-            paper_bgcolor: 'rgba(0,0,0,0)'
+            paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
         }];
     var layout = {
         title: (title == '') ? 'Ojiva' : title,
@@ -156,7 +156,7 @@ var generateOgive = function (parentElement, relativeFrequencyAcum, classMark, c
             b: 100 // Aumentar el margen inferior para etiquetas largas
         },
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
     Plotly.newPlot(parentElement, data, layout);
 };
@@ -178,7 +178,7 @@ var generateFrequencyPolygon = function (parentElement, relativeFrequency, class
                 dash: 'dash'
             },
             marker: {
-                color: '#20BEFF',
+                color: '#6FBF73',
                 size: 15,
                 symbol: 'circle',
                 line: {
@@ -207,7 +207,7 @@ var generateFrequencyPolygon = function (parentElement, relativeFrequency, class
             b: 100 // Aumentar el margen inferior para etiquetas largas
         },
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
     Plotly.newPlot(parentElement, data, layout);
 };

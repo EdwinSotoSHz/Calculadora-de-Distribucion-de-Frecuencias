@@ -143,7 +143,7 @@ checkBarPlot.addEventListener('change',()=>{
     barPlot.id = "barPlot";
     if (getValueCheck(checkBarPlot)) {
         graphics?.appendChild(barPlot);
-        generateHorizontalBarChart(barPlot, class_fa_fr_frAc[1], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        generateHorizontalBarChart(barPlot, class_fa_fr_frAc[1], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }else{
         document.getElementById("barPlot")?.remove();
     }
@@ -154,7 +154,7 @@ checkPiePlot.addEventListener('change',()=>{
     piePlot.id = "piePlot";
     if (getValueCheck(checkPiePlot)) {
         graphics?.appendChild(piePlot);
-        generatePieChart(piePlot, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        generatePieChart(piePlot, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }else{
         document.getElementById("piePlot")?.remove();
     }
@@ -165,7 +165,7 @@ checkHistogram.addEventListener('change',()=>{
     histogram.id = "histogram";
     if (getValueCheck(checkHistogram)) {
         graphics?.appendChild(histogram);
-        generateHistogram(histogram, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        generateHistogram(histogram, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }else{
         document.getElementById("histogram")?.remove();
     }
@@ -176,7 +176,7 @@ checkOgive.addEventListener('change',()=>{
     ogive.id = "ogive";
     if (getValueCheck(checkOgive)) {
         graphics?.appendChild(ogive);
-        generateOgive(ogive, class_fa_fr_frAc[3], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        generateOgive(ogive, class_fa_fr_frAc[3], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }else{
         document.getElementById("ogive")?.remove();
     }
@@ -187,7 +187,7 @@ checkFrequencyPolygon.addEventListener('change',()=>{
     frequencyPolygon.id = "frequencyPolygon";
     if (getValueCheck(checkFrequencyPolygon)) {
         graphics?.appendChild(frequencyPolygon);
-        generateFrequencyPolygon(frequencyPolygon, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#20BEFF", "#1F77B4", "#72C3DC", "#D6DBDF", "#5D6D7E"], titleChart.value);
+        generateFrequencyPolygon(frequencyPolygon, class_fa_fr_frAc[2], class_fa_fr_frAc[0], ["#1E2F5B", "#296F1A", "#6FBF73", "#8FA6B8", "#FFFFFF"], titleChart.value);
     }else{
         document.getElementById("frequencyPolygon")?.remove();
     }

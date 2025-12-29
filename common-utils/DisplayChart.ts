@@ -46,7 +46,7 @@ const generateHorizontalBarChart  = function(parentElement: HTMLDivElement, abso
         },
         bargap: 0.2,
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
 
     Plotly.newPlot(parentElement, data, layout);
@@ -76,7 +76,7 @@ const generatePieChart  = function(parentElement: HTMLDivElement, relativeFreque
         title: (title == '') ? 'Gráfico Circular' : title,
         showlegend: true,
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
 
     Plotly.newPlot(parentElement, data, layout);
@@ -119,7 +119,7 @@ const generateHistogram  = function(parentElement: HTMLDivElement, relativeFrequ
         },
         bargap: 0.01,
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
 
     Plotly.newPlot(parentElement, data, layout);
@@ -142,7 +142,7 @@ const generateOgive  = function(parentElement: HTMLDivElement, relativeFrequency
             dash: 'dash'
         },
         marker: {
-            color: '#20BEFF',
+            color: '#6FBF73',
             size: 15,
             symbol: 'circle',
             line: {
@@ -151,7 +151,7 @@ const generateOgive  = function(parentElement: HTMLDivElement, relativeFrequency
             }
         },
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     }];
 
     let layout = {
@@ -172,7 +172,7 @@ const generateOgive  = function(parentElement: HTMLDivElement, relativeFrequency
             b: 100 // Aumentar el margen inferior para etiquetas largas
         },
         plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+        paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
 
     Plotly.newPlot(parentElement, data, layout);
@@ -199,7 +199,7 @@ const generateFrequencyPolygon  = function(parentElement: HTMLDivElement, relati
             dash: 'dash'
         },
         marker: {
-            color: '#20BEFF',
+            color: '#6FBF73',
             size: 15,
             symbol: 'circle',
             line: {
@@ -211,25 +211,25 @@ const generateFrequencyPolygon  = function(parentElement: HTMLDivElement, relati
         textposition: 'top'
     }];
 
-        let layout = {
-        title: (title == '') ? 'Polígono de Frecuencias' : title,
-        xaxis: {
-            title: 'Marcas de Clase',
-            automargin: true
-        },
-        yaxis: {
-            title: 'Frecuencia Relativa',
-            range: [0, (Math.max(...frequencyWhithLimits)+0.05)], 
-            tickformat: ',.2f' 
-        },
-        margin: {
-            l: 50,
-            r: 20,
-            t: 50,
-            b: 100 // Aumentar el margen inferior para etiquetas largas
-        },
-        plot_bgcolor: 'rgba(0,0,0,0)',
-        paper_bgcolor: 'rgba(0,0,0,0)'
+    let layout = {
+    title: (title == '') ? 'Polígono de Frecuencias' : title,
+    xaxis: {
+        title: 'Marcas de Clase',
+        automargin: true
+    },
+    yaxis: {
+        title: 'Frecuencia Relativa',
+        range: [0, (Math.max(...frequencyWhithLimits)+0.05)], 
+        tickformat: ',.2f' 
+    },
+    margin: {
+        l: 50,
+        r: 20,
+        t: 50,
+        b: 100 // Aumentar el margen inferior para etiquetas largas
+    },
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    paper_bgcolor: 'rgba(255, 255, 255, 0.3)'
     };
 
     Plotly.newPlot(parentElement, data, layout);
