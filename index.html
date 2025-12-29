@@ -7,68 +7,82 @@
     <title>Herramientas matemáticas</title>
     <meta author="Edwin Soto">
     <meta description="Calculadora de medidas de dispersión, la Desviación media, Desviación típica o estándar y varianza de un conjunto de datos, Los datos agrupados se especifican en Intervalos asociados a una frecuencia, puedes calcular medidas de posición (Cuartiles, deciles y Percentiles)">
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="css/indexStyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- https://pixabay.com/es/photos/calculadora-c%C3%A1lculo-seguro-finanzas-385506/ -->
+    <div id="effectBackground"></div>
+    
     <header>
-        <h1>Herramientas matemáticas</h1>
+        <h1><i class="fas fa-calculator" style="margin-right: 15px;"></i> Herramientas matemáticas</h1>
+        <p style="color: #FFFFFF; margin-top: 10px; font-size: 1.1em;">Selecciona el tipo de datos que deseas analizar</p>
     </header>
+    
     <main>
-        <div class="cards">
-            <img src="img/calculator-385506_1280.jpg" alt="image" class="cards-img">
-            <div class="cards-content">
-                <h2>Distribución de Frecuencias para Datos Cualitativos</h2>
-                <p>
-                    Agrupa los datos en categorías basadas en cualidades o características y visualiza la frecuencia de cada categoría de forma clara y sencilla. 
-                </p>
-                <a href="Grouped_Data/Qualitative_Data/QualitativeData.html">
-                    <button>Ir a la calculadora</button>
-                </a>
+        <div class="cards-container">
+            <!-- Tarjeta 1: Datos Cualitativos -->
+            <div class="cards">
+                <img src="img/calculator-385506_1280.jpg" alt="Datos Cualitativos" class="cards-img">
+                <div class="cards-content">
+                    <h2><i class="fas fa-chart-pie" style="margin-right: 10px;"></i> Datos Cualitativos</h2>
+                    <p>
+                        Agrupa los datos en categorías basadas en cualidades o características y visualiza la frecuencia de cada categoría de forma clara y sencilla.
+                    </p>
+                    <div class="features">
+                        <span><i class="fas fa-check-circle"></i> Categorías descriptivas</span>
+                        <span><i class="fas fa-check-circle"></i> Gráficas de barras y circulares</span>
+                        <span><i class="fas fa-check-circle"></i> Tablas de frecuencia</span>
+                    </div>
+                    <a href="Grouped_Data/Qualitative_Data/QualitativeData.html">
+                        <button><i class="fas fa-chart-bar" style="margin-right: 8px;"></i> Ir a la calculadora</button>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="cards">
-            <img src="img/calculator-385506_1280.jpg" alt="image" class="cards-img">
-            <div class="cards-content">
-                <h3>Tema</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa illum animi nisi est, consequuntur enim.
-                </p>
-                <button>Ir a la calculadora</button>
-            </div>
-        </div>
-        <div class="cards">
-            <img src="img/calculator-385506_1280.jpg" alt="image" class="cards-img">
-            <div class="cards-content">
-                <h3>Tema</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa illum animi nisi est, consequuntur enim.
-                </p>
-                <button>Ir a la calculadora</button>
-            </div>
-        </div>
-        <div class="cards">
-            <img src="img/calculator-385506_1280.jpg" alt="image" class="cards-img">
-            <div class="cards-content">
-                <h3>Tema</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa illum animi nisi est, consequuntur enim.
-                </p>
-                <button>Ir a la calculadora</button>
-            </div>
-        </div>
-        <div class="cards">
-            <img src="img/calculator-385506_1280.jpg" alt="image" class="cards-img">
-            <div class="cards-content">
-                <h3>Tema</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa illum animi nisi est, consequuntur enim.
-                </p>
-                <button>Ir a la calculadora</button>
+            
+            <!-- Tarjeta 2: Datos Cuantitativos -->
+            <div class="cards">
+                <img src="img/calculator-385506_1280.jpg" alt="Datos Cuantitativos" class="cards-img">
+                <div class="cards-content">
+                    <h2><i class="fas fa-chart-line" style="margin-right: 10px;"></i> Datos Cuantitativos</h2>
+                    <p>
+                        Analiza datos numéricos discretos y continuos, genera distribuciones de frecuencia con intervalos y visualiza mediante histogramas, ojivas y polígonos.
+                    </p>
+                    <div class="features">
+                        <span><i class="fas fa-check-circle"></i> Datos discretos y continuos</span>
+                        <span><i class="fas fa-check-circle"></i> Histogramas y ojivas</span>
+                        <span><i class="fas fa-check-circle"></i> Cálculo automático de intervalos</span>
+                    </div>
+                    <a href="Quantitative_Data/CuantitativeData.html">
+                        <button><i class="fas fa-chart-line" style="margin-right: 8px;"></i> Ir a la calculadora</button>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
+    
+    <!-- Créditos -->
+<div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+    <p style="color: var(--gris-tecnico); font-size: 0.85em;">
+        <i class="fas fa-code"></i> Desarrollado por 
+        <a href="https://github.com/EdwinSotoSHz" style="color: #66d9ef; text-decoration: none;"
+        onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+            Edwin Soto</a>
+        | 
+        <i class="fas fa-calculator"></i> Calculadora Estadística
+    </p>
+    <p style="color: var(--gris-tecnico); font-size: 0.8em; margin-top: 8px;">
+        <i class="fab fa-github"></i> 
+        <a href="https://github.com/EdwinSotoSHz/Calculadora-de-Distribucion-de-Frecuencias.git" 
+        target="_blank" 
+        style="color: var(--amarillo-suave); text-decoration: none;"
+        onmouseover="this.style.textDecoration='underline'"
+        onmouseout="this.style.textDecoration='none'">
+            Ver código en GitHub
+        </a>
+    </p>
+</div>
+    
     <script src="script.js"></script>
 </body>
 </html>

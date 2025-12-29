@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Distribución de Frecuencias | Datos Cuantitativos</title>
+    <meta name="description" content="Calculadora que permite generar tablas de distribución de frecuencias y gráficos para datos cuantitativos discretos y continuos.">
+    <meta name="keywords" content="distribución de frecuencias, datos cuantitativos discretos, datos cuantitativos continuos, histogramas, gráficos, tablas de frecuencia">
+    <meta name="author" content="Edwin Salvador Soto Hernandez">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Calculadora de Distribución de Frecuencias Cuantitativas">
+    <meta property="og:description" content="Calculadora que permite generar tablas de distribución de frecuencias y gráficos para datos cuantitativos discretos y continuos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/EdwinSotoSHz/Calculadora-de-Distribucion-de-Frecuencias">
+    <meta property="og:image" content="URL_DE_LA_IMAGEN_DE_PREVISUALIZACIÓN">
+    <link rel="stylesheet" href="css/GroupedData.css">
+    <link rel="icon" href="img/icon.ico" type="image/x-icon">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<!-- Canvas para el fondo animado -->
+    <canvas id="techCanvas"></canvas>
+    
+    <a href="QualitativeData.html"><button class="corner-button highlight">
+        <i class="fas fa-chart-pie" style="margin-right: 8px;"></i> Datos Cualitativos
+    </button></a>
+    
+    <div id="info">
+        <h1>📊 Distribución de Frecuencias y Gráficas</h1>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showSlide(0)">
+                <i class="fas fa-chart-bar" style="margin-right: 8px;"></i> Datos Discretos
+            </button>
+            <button class="tab" onclick="showSlide(1)">
+                <i class="fas fa-chart-line" style="margin-right: 8px;"></i> Datos Continuos
+            </button>
+        </div>
+        
+        <div class="slider-container highlight">
+            <div class="slider">
+                <div class="slide slide3">
+                    <h2>📈 Distribución de Frecuencias para Datos Cuantitativos Discretos</h2>
+                    <p><strong>Descripción:</strong> La distribución de frecuencias para datos cuantitativos discretos organiza los datos numéricos en valores específicos que solo pueden tomar ciertos números enteros. Esta distribución muestra cuántas veces ocurre cada valor específico en un conjunto de datos.</p>
+                    <p><strong>Ejemplo:</strong> Supongamos que registras el número de libros leídos por cada estudiante en un mes. Los valores posibles son 0, 1, 2, 3, etc. La distribución de frecuencias podría mostrar que 5 estudiantes leyeron 1 libro, 3 estudiantes leyeron 2 libros, y así sucesivamente.</p>
+                    <p><strong>Características:</strong></p>
+                    <ul>
+                        <li><strong>Valores Específicos:</strong> Solo puede tomar valores numéricos enteros y específicos.</li>
+                        <li><strong>Contabilidad Exacta:</strong> Muestra la frecuencia de cada valor exacto.</li>
+                        <li><strong>Visualización:</strong> Se puede representar mediante un diagrama de barras, un gráfico circular, ojiva, histograma y polígono de frecuencias.</li>
+                        <li><strong>Opciones de Organización:</strong> Los datos pueden organizarse por orden numérico o por la frecuencia absoluta.</li>
+                        <li><strong>Uso en la Calculadora:</strong> Solo necesitas ingresar los datos separados por comas (por ejemplo: 1,2,1,2,3,4,5,4,2,3,4) para generar automáticamente la tabla de distribución de frecuencias y los gráficos correspondientes.</li>
+                    </ul>
+                </div>
+                <div class="slide slide3">
+                    <h2>📊 Distribución de Frecuencias para Datos Cuantitativos Continuos</h2>
+                    <p><strong>Descripción:</strong> La distribución de frecuencias para datos cuantitativos continuos organiza los datos numéricos en intervalos o rangos. Los datos continuos pueden tomar cualquier valor dentro de un rango y se agrupan en intervalos para simplificar el análisis y la visualización.</p>
+                    <p><strong>Ejemplo:</strong> Imagina que mides la altura de los estudiantes en centímetros. Los datos pueden ser 150.5 cm, 160.2 cm, etc. Para construir una distribución de frecuencias, agruparías los datos en intervalos como 150-155 cm, 156-160 cm, y contarías cuántas alturas caen dentro de cada intervalo.</p>
+                    <p><strong>Características:</strong></p>
+                    <ul>
+                        <li><strong>Intervalos:</strong> Los datos se agrupan en intervalos o clases debido a su naturaleza continua.</li>
+                        <li><strong>Rangos:</strong> Permite agrupar datos en rangos amplios para observar patrones generales.</li>
+                        <li><strong>Visualización:</strong> Se puede representar mediante un histograma, un gráfico de barras, gráfico circular, ojiva y polígono de frecuencias.</li>
+                        <li><strong>Métodos de Cálculo de Intervalos:</strong> Puedes elegir entre intervalos cerrado-abierto y el último intervalo cerrado, o el primero cerrado y los demás abierto-cerrado.</li>
+                        <li><strong>Uso en la Calculadora:</strong> Solo necesitas ingresar los datos separados por comas (por ejemplo: 1.2,1.2,4,3.4,3.4,3.4,2.2,3.3) para generar automáticamente la tabla de distribución de frecuencias y los gráficos correspondientes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    
+    <div class="slide div1 highlight">
+        <h3 style="color: #6FBF73; margin-bottom: 20px;">
+            <i class="fas fa-database" style="margin-right: 10px;"></i> Ingreso de Datos
+        </h3>
+        <label for="inputData" style="display: block; margin-bottom: 10px; color: #9FC8E6; font-weight: 500;">
+            Ingresa valores separados por comas (números):
+        </label>
+        <textarea id="inputData" name="inputData" style="width: 50%;" 
+                  placeholder="Ejemplo: 1,2,1,2,3,4,5,4,2,3,4 o 1.2,1.2,4,3.4,3.4,3.4,2.2,3.3"></textarea><br>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin: 20px 0;">
+            <div class="toggle-container">
+                <label for="type" class="toggle-label">
+                    <i class="fas fa-exchange-alt" style="margin-right: 8px;"></i> Discretos / Continuos
+                    <div class="toggle-wrapper">
+                        <input type="checkbox" id="type" value="false" class="toggle-checkbox"/>
+                        <div class="toggle-slider"></div>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="toggle-container">
+                <label for="checkOrder" class="toggle-label">
+                    <i class="fas fa-sort-amount-down" style="margin-right: 8px;"></i> Ordenar por F. Abs.
+                    <div class="toggle-wrapper">
+                        <input type="checkbox" disabled id="checkOrder" value="false" class="toggle-checkbox"/> 
+                        <div class="toggle-slider"></div>
+                    </div>
+                </label>
+            </div>
+            
+            <div class="toggle-container">
+                <label for="checkWay" class="toggle-label">
+                    <i class="fas fa-random" style="margin-right: 8px;"></i> Forma alternativa
+                    <div class="toggle-wrapper">
+                        <input type="checkbox" disabled id="checkWay" value="false" class="toggle-checkbox"/> 
+                        <div class="toggle-slider"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        
+        <div style="margin: 15px 0;">
+            <input type="number" id="numClass" name="numClass" disabled 
+                   placeholder="Número de clases (automático si se deja vacío)"
+                   style="width: 50%; padding: 12px; margin: 10px 0;"/>
+        </div>
+        
+        <button id="btnData" class="highlight">
+            <i class="fas fa-calculator" style="margin-right: 8px;"></i> Generar Distribución
+        </button>
+    </div>
+    
+    <div id="tableContainer" style="width: 80%; margin: auto;"></div>
+    
+    <br><br>
+    
+    <div style="width: 50%; margin: auto;">
+        <input type="text" id="titleChart" disabled name="titleChart" 
+               placeholder="Ingresa un título personalizado para los gráficos..." 
+               style="width: 100%; margin: auto;">
+    </div>
+
+    <br><br>
+    
+    <div class="chart-selection-container highlight">
+        <h3 style="color: #6FBF73; margin-bottom: 20px; text-align: center;">
+            <i class="fas fa-chart-bar" style="margin-right: 10px;"></i> Selecciona los gráficos a mostrar:
+        </h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <label for="checkBarPlot"><input type="checkbox" id="checkBarPlot"/><span class="custom-checkbox"></span> Gráfica de barras</label>
+            <label for="checkPiePlot"><input type="checkbox" id="checkPiePlot"/><span class="custom-checkbox"></span> Gráfica circular</label>
+            <label for="checkHistogram"><input type="checkbox" id="checkHistogram"/><span class="custom-checkbox"></span> Histograma</label>
+            <label for="checkOgive"><input type="checkbox" id="checkOgive"/><span class="custom-checkbox"></span> Ojiva</label>
+            <label for="checkFrequencyPolygon"><input type="checkbox" id="checkFrequencyPolygon"/><span class="custom-checkbox"></span> Polígono de frecuencias</label>
+        </div>
+    </div>
+
+    <br><br>
+    
+    <div id="graphics">
+        <h3 style="color: #6FAED9; text-align: center; margin-bottom: 20px;">
+            <i class="fas fa-chart-line" style="margin-right: 10px;"></i> Visualización de Resultados
+        </h3>
+    </div>
+
+    <script src="common-utils/DisplayData.js"></script>
+    <script src="common-utils/DisplayChart.js"></script>
+    <script src="quantitative-data/QuantitativeDiscreteData.js"></script>
+    <script src="quantitative-data/QuantitativeContinuosData.js"></script>
+    <script src="quantitative-data/QuantitativeData.js"></script>
+    <script src="common-utils/animatedBackground.js"></script>
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slider = document.querySelector('.slider');
+            const tabs = document.querySelectorAll('.tab');
+            const totalSlides = slider.children.length;
+            currentSlide = index;
+
+            const offset = -currentSlide * 100 / totalSlides;
+            slider.style.transform = `translateX(${offset}%)`;
+
+            tabs.forEach((tab, i) => {
+                if (i === index) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
