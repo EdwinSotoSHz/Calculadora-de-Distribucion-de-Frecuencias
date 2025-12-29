@@ -1,0 +1,195 @@
+@import url('https://fonts.cdnfonts.com/css/noto-sans-adlam');
+*{
+    padding: 0%;
+    margin: 0%;
+}
+:root{
+    --color-1: #27c76c;
+    --color-2: #10b194;
+    --color-3: #001a33;
+    --color-4: #c9e9e3;
+    --color-5: #ff6b6b;
+    --color-6: #FFCC5C;
+    --color-7: #6B5B95;
+    --color-8: #FF9F1C;
+}
+body{
+    background: var(--color-4);
+    min-height: 100vh;
+    font-family: 'Noto Sans Adlam', sans-serif;
+    text-align: center;
+    font-size: 1em;
+}
+#effectBackground{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    z-index: -2;
+    user-select: none;
+    background: transparent;
+}
+header{
+    text-align: center;
+    margin: 10px;
+}
+main{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 20px;
+}
+@media (max-width: 349px) {
+    .cards-content h3{
+        text-align: left;
+    }
+    main{
+        padding: 2px;
+        grid-template-columns: repeat(1, 1fr);
+        margin: auto 10px;
+    }
+}
+@media (min-width: 350px) and (max-width: 479px) {
+    main{
+        padding: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        margin: auto 10px;
+    }
+}
+@media (min-width: 480px) and (max-width: 769px) {
+    main{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    main{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/************************************************************
+                        Cards Style
+/************************************************************/
+.cards{
+    margin: 10px auto auto auto;
+    border: double white 5px;
+    text-align: justify;
+    width: 95%;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s;
+    opacity: 0.9;
+}
+.cards:hover{
+    transform: scaleY(1.15) scaleX(1.08);
+    opacity: 1;
+}
+.cards:hover .cards-img{
+    filter: blur(0px);
+}
+.cards:hover .cards-content::after{
+    width: 70%;
+}
+.cards:hover button{
+    opacity: 1;
+}
+.cards h2, .cards p{
+    padding: 8px 0px 0px 0px;
+    transition: 0.5s;
+}
+.cards h2{
+    font-size: 1.15rem;
+}
+.cards:hover h2, .cards:hover p{
+    padding: 0px 0px 5px 0px;
+}
+.cards-img{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    filter: blur(2px);
+    transition: 0.3s;
+}
+.cards-content{
+    z-index: 2;
+    position:  relative;
+    background: var(--color-1);
+    padding: 18px 22px 18px 22px;
+}
+.cards-content button{
+    margin-top: 10px;
+    opacity: 0;
+    transition: 0.4s;
+    padding: 9px 18px;
+    border-radius: 20px;
+    background-color: var(--color-2);
+    border: 0px;
+    box-shadow:inset 0px 0px 15px 6px #1ad6b4;
+    font-size: 1em;
+    font-weight: bolder;
+}
+.cards-content button:active{
+    transition: 0.1s;
+    transform: scale(1.12);
+}
+.cards-content::before{
+    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0% 100%);
+    z-index: 2;
+    position: absolute;
+    top: -34%;
+    left: 0%;
+    content: '';
+    background: linear-gradient(-5deg, var(--color-1) 45%, rgba(0,0,0,0) 65%);
+    height: 35%;
+    width: 100%;   
+}
+.cards-content::after{
+    z-index: 3;
+    position: absolute;
+    top: 2%;
+    left: 0%;
+    content: '';
+    background-color: white;
+    height: 3%;
+    width: 0%;   
+    transition: 0.4s;
+}
+.particlesBody{
+    position: absolute;
+    background: transparent;
+    animation: fall 7s ease-in-out infinite;
+    bottom: -40vh;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-180vh) rotate(360deg);
+    }
+}
+
+.particles{
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    border-color: greenyellow;
+    border: 0.8px rgba(0, 255, 68, 0.8) solid;
+    box-shadow: 0px 0px 13px 2px rgb(0, 255, 30);
+    background: radial-gradient(circle, rgba(70, 252, 100, 0.7) 0%, transparent 79%, transparent 85%, rgba(100, 252, 70, 0.7) 100%);
+    animation: turnOn 3s ease-in-out infinite;
+}
+@keyframes turnOn {
+    0% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}

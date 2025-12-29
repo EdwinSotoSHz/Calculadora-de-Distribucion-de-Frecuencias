@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Distribución de Frecuencias | Datos Cualitativos</title>
+    <meta name="description" content="Calculadora que permite generar tablas de distribución de frecuencias y gráficos para datos cualitativos.">
+    <meta name="keywords" content="distribución de frecuencias, datos cualitativos, gráficos, tablas de frecuencia">
+    <meta name="author" content="Edwin Salvador Soto Hernandez">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Calculadora de Distribución de Frecuencias Cualitativas">
+    <meta property="og:description" content="Calculadora que permite generar tablas de distribución de frecuencias y gráficos para datos cualitativos.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/EdwinSotoSHz/Calculadora-de-Distribucion-de-Frecuencias">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="css/GroupedData.css">
+    <link rel="icon" href="img/icon.ico" type="image/x-icon">
+</head>
+<body>
+    <a href="../Quantitative_Data/CuantitativeData.html"><button class="corner-button">Calculadora para datos Cuantitativos</button></a>
+    <div id="info">
+        <h1>Distribución de Frecuencias y Gráficas</h1>
+        <div class="slide slide3">
+            <h2>Distribución de Frecuencias para Datos Cualitativos</h2>
+            <p><strong>Descripción:</strong> La distribución de frecuencias para datos cualitativos organiza los datos en categorías basadas en características o atributos descriptivos. Muestra cuántas veces aparece cada categoría en el conjunto de datos.</p>
+            <p><strong>Ejemplo:</strong> Supongamos que registras las preferencias de color de un grupo de personas. Las categorías podrían ser Rojo, Azul, Verde, etc. La distribución de frecuencias podría mostrar que 10 personas prefieren el color Rojo, 15 personas prefieren el color Azul, y así sucesivamente.</p>
+            <p><strong>Características:</strong></p>
+            <ul>
+                <li><strong>Categorías Descriptivas:</strong> Los datos se agrupan en categorías basadas en cualidades o características.</li>
+                <li><strong>Contabilidad Exacta:</strong> Muestra la frecuencia de cada categoría.</li>
+                <li><strong>Visualización:</strong> Se puede representar mediante un diagrama de barras, un gráfico circular y otros gráficos similares.</li>
+                <li><strong>Uso en la Calculadora:</strong> Solo necesitas ingresar los datos separados por comas (por ejemplo, Rojo,Azul,Verde,Rojo,Azul,Rojo) para generar automáticamente la tabla de distribución de frecuencias y los gráficos correspondientes.</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div class="slide div1">
+        <label for="csvInput">Ingresa valores separados por comas:</label><br>
+        <textarea id="inputData" name="inputData" style="width: 50%;"></textarea><br>
+        <button id="btnData">Generar Distribución</button>
+        <div class="toggle-container">
+            <label for="checkOrder" class="toggle-label">
+                Ordenar por F. Abs.
+                <div class="toggle-wrapper">
+                    <input type="checkbox" id="checkOrder" value="false" class="toggle-checkbox"/> 
+                    <div class="toggle-slider"></div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div id="tableContainer" style="width: 80%; margin: auto;"></div>
+    <br><br>
+    <input type="text" id="titleChart" disabled name="titleChart" placeholder="Título" style="width: 30%; margin: auto;">
+
+    <br><br>
+    <label for="checkBarPlot"><input type="checkbox" id="checkBarPlot"/><span class="custom-checkbox"></span> Gráfica de barras</label><br>
+    <label for="checkPiePlot"><input type="checkbox" id="checkPiePlot"/><span class="custom-checkbox"></span> Gráfica circular</label><br>
+    <label for="checkHistogram"><input type="checkbox" id="checkHistogram"/><span class="custom-checkbox"></span> Histograma</label><br>
+    <label for="checkOgive"><input type="checkbox" id="checkOgive"/><span class="custom-checkbox"></span> Ojiva</label><br>
+    <label for="checkFrequencyPolygon"><input type="checkbox" id="checkFrequencyPolygon"/><span class="custom-checkbox"></span> Polígono de frecuencias</label>
+
+    <br><br>
+    <div id="graphics" style="width: 100%;"></div>
+
+    <script src="common-utils/DisplayData.js"></script>
+    <script src="common-utils/DisplayChart.js"></script>
+    <script src="qualitative-data/QualitativeData.js"></script>
+</body>
+</html>
